@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Node">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Element">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ChildNodes" nillable="true" type="tns:ArrayOfNode" />
+          <xs:element minOccurs="0" name="HasChildren" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Settings" nillable="true" type="tns:ArrayOfSetting" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Node" nillable="true" type="tns:Node" />
+  <xs:complexType name="Element">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastChange" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parent" nillable="true" type="tns:Node" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Element" nillable="true" type="tns:Element" />
+  <xs:complexType name="Setting">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Element">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Constraint1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Constraint2" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="DataType" type="xs:unsignedByte" />
+          <xs:element minOccurs="0" name="LastAccess" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Setting" nillable="true" type="tns:Setting" />
+  <xs:complexType name="ArrayOfNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Node" nillable="true" type="tns:Node" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNode" nillable="true" type="tns:ArrayOfNode" />
+  <xs:complexType name="ArrayOfSetting">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Setting" nillable="true" type="tns:Setting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSetting" nillable="true" type="tns:ArrayOfSetting" />
+  <xs:complexType name="ResponceOfArrayOfElementxqU3Jgrq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfElement" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfElement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfArrayOfElementxqU3Jgrq" nillable="true" type="tns:ResponceOfArrayOfElementxqU3Jgrq" />
+  <xs:complexType name="ArrayOfElement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Element" nillable="true" type="tns:Element" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfElement" nillable="true" type="tns:ArrayOfElement" />
+  <xs:complexType name="ResponceOfElementxqU3Jgrq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Element" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Element" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfElementxqU3Jgrq" nillable="true" type="tns:ResponceOfElementxqU3Jgrq" />
+  <xs:complexType name="VoidResponce">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VoidResponce" nillable="true" type="tns:VoidResponce" />
+  <xs:complexType name="ResponceOfArrayOfPermissionxqU3Jgrq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfPermission" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfPermission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfArrayOfPermissionxqU3Jgrq" nillable="true" type="tns:ResponceOfArrayOfPermissionxqU3Jgrq" />
+  <xs:complexType name="ArrayOfPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Permission" nillable="true" type="tns:Permission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPermission" nillable="true" type="tns:ArrayOfPermission" />
+  <xs:complexType name="Permission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ElementPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Inherited" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Operations" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Permission" nillable="true" type="tns:Permission" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ResponceOfPermissionxqU3Jgrq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Permission" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Permission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfPermissionxqU3Jgrq" nillable="true" type="tns:ResponceOfPermissionxqU3Jgrq" />
+  <xs:complexType name="ResponceOfArrayOfUserxqU3Jgrq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfUser" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfArrayOfUserxqU3Jgrq" nillable="true" type="tns:ResponceOfArrayOfUserxqU3Jgrq" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="ResponceOfNodexqU3Jgrq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Node" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Node" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfNodexqU3Jgrq" nillable="true" type="tns:ResponceOfNodexqU3Jgrq" />
+  <xs:complexType name="ResponceOfSettingxqU3Jgrq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Setting" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Setting" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfSettingxqU3Jgrq" nillable="true" type="tns:ResponceOfSettingxqU3Jgrq" />
+  <xs:complexType name="ResponceOfdateTime">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="dateTime" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfdateTime" nillable="true" type="tns:ResponceOfdateTime" />
+  <xs:complexType name="ResponceOfstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfstring" nillable="true" type="tns:ResponceOfstring" />
+  <xs:complexType name="ResponceOfArrayOfHistoryInfoxqU3Jgrq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfHistoryInfo" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfHistoryInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfArrayOfHistoryInfoxqU3Jgrq" nillable="true" type="tns:ResponceOfArrayOfHistoryInfoxqU3Jgrq" />
+  <xs:complexType name="ArrayOfHistoryInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryInfo" nillable="true" type="tns:HistoryInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistoryInfo" nillable="true" type="tns:ArrayOfHistoryInfo" />
+  <xs:complexType name="HistoryInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Info" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Operation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Path" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="User" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HistoryInfo" nillable="true" type="tns:HistoryInfo" />
+  <xs:complexType name="ResponceOfArrayOfHistoryRecordxqU3Jgrq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfHistoryRecord" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfHistoryRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfArrayOfHistoryRecordxqU3Jgrq" nillable="true" type="tns:ResponceOfArrayOfHistoryRecordxqU3Jgrq" />
+  <xs:complexType name="ArrayOfHistoryRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryRecord" nillable="true" type="tns:HistoryRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistoryRecord" nillable="true" type="tns:ArrayOfHistoryRecord" />
+  <xs:complexType name="HistoryRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HistoryRecord" nillable="true" type="tns:HistoryRecord" />
+  <xs:complexType name="ResponceOfArrayOfSubscriptionxqU3Jgrq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfSubscription" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:ArrayOfSubscription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfArrayOfSubscriptionxqU3Jgrq" nillable="true" type="tns:ResponceOfArrayOfSubscriptionxqU3Jgrq" />
+  <xs:complexType name="ArrayOfSubscription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Subscription" nillable="true" type="tns:Subscription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubscription" nillable="true" type="tns:ArrayOfSubscription" />
+  <xs:complexType name="Subscription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ElementPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Operations" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WatchedUsers" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Subscription" nillable="true" type="tns:Subscription" />
+  <xs:complexType name="ResponceOfSubscriptionxqU3Jgrq">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ResponceOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Subscription" Namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="tns:Subscription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponceOfSubscriptionxqU3Jgrq" nillable="true" type="tns:ResponceOfSubscriptionxqU3Jgrq" />
+</xs:schema>

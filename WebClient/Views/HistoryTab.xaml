@@ -1,0 +1,83 @@
+﻿<UserControl 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:MyControls="clr-namespace:WebClient.ICS.Client.Controls" 
+    x:Class="WebClient.ICS.Client.Views.HistoryTab"
+    mc:Ignorable="d" d:DesignWidth="611" d:DesignHeight="513">
+    
+    <d:DesignProperties.DataContext>
+        <Binding Path="NodeHistoryDesignTimeStatic" Source="{StaticResource Locator}"/>
+    </d:DesignProperties.DataContext>
+
+    <UserControl.Resources>
+        
+        <!-- ShortInfoTemplate -->
+        
+        <DataTemplate x:Key="ShortInfoTemplate">
+            <Grid Margin="1,0,0,0" d:DataContext="{Binding HistoryInfoItemDesignTime, Source={StaticResource Locator}}">
+        		<Grid.RowDefinitions>
+        			<RowDefinition Height="Auto"/>
+        			<RowDefinition Height="Auto"/>
+        			<RowDefinition Height="*"/>
+        			<RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+        		</Grid.RowDefinitions>
+        		<TextBlock x:Name="DataField" Text="{Binding Time, ConverterCulture=ru-RU}" FontWeight="Bold" Foreground="{StaticResource ButtonTextBlueBrush}" FontFamily="Verdana" Margin="0,0,0,2"/>
+        		<TextBlock x:Name="OperationField" Text="{Binding Operation}" FontWeight="Bold" Foreground="{StaticResource ButtonTextBlueBrush}" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,2,0" FontFamily="Verdana"/>
+        		<TextBlock x:Name="PathField" Text="{Binding Path}" Grid.Row="2" TextWrapping="Wrap" Margin="3,0,2,4" Foreground="#FF1A1A1A"/>
+        		<TextBlock x:Name="UserNameField" Text="{Binding User}" Grid.Row="3" TextWrapping="Wrap" FontFamily="Trebuchet MS" Margin="3,0,2,4" FontWeight="Bold" Foreground="#FF202020" FontSize="12"/>
+        		<TextBlock x:Name="AdditionalInfoField" Text="{Binding Info}" Grid.ColumnSpan="2" Grid.Row="4" FontStyle="Italic" TextWrapping="Wrap" FontFamily="Verdana" Margin="3,0,2,3" Foreground="#FF555555"/>
+        	</Grid>
+        </DataTemplate>
+
+        <!-- "FullInfoDataTemplate" -->
+        
+    	<DataTemplate x:Key="FullInfoDataTemplate">
+            <MyControls:FullStatisticsItemControl/>
+    	</DataTemplate>
+        
+    </UserControl.Resources>
+    
+    <Grid>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="Auto"/>
+    		<RowDefinition/>
+    	</Grid.RowDefinitions>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.388*"/>
+    		<ColumnDefinition Width="0.612*"/>
+    	</Grid.ColumnDefinitions>
+
+    	<MyControls:FilterPanelControl Grid.ColumnSpan="2" Margin="0,0,0,16"/>
+
+        <!-- ShortInfoPanel  -->
+        
+        <ContentControl x:Name="ShortInfoPanel" Grid.Row="1" Template="{StaticResource RoundContentControlTemplate}" Margin="0,0,5,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Style="{StaticResource ScrollViewerStyle}">
+                <MyControls:HistoryListBox x:Name="ShortInfoListBox" Background="{x:Null}"
+                         ItemTemplate="{StaticResource ShortInfoTemplate}"
+                         ItemContainerStyle="{StaticResource ListBoxItemContainerStyle}"
+                         ItemsSource="{Binding HistoryInfo, Mode=OneWay}"
+                         Style="{StaticResource ListBoxStyle}"
+                         SelectedItem="{Binding CurrentInfo, Mode=TwoWay, UpdateSourceTrigger=Explicit}"
+                         SelectionChanged="ShortInfoListSelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+            </ScrollViewer>
+        </ContentControl>
+
+        <!-- FullInfoPanel  -->
+
+        <ItemsControl Template="{StaticResource ItemsControlExtended}" Grid.Row="1" Grid.Column="1" Padding="5,5,0,5" Margin="3,0,0,0"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                      ScrollViewer.VerticalScrollBarVisibility="Auto" 
+                      ItemTemplate="{StaticResource FullInfoDataTemplate}"
+                      ItemsSource="{Binding HistoryRecords}"/>
+
+        <!-- Error cutrain window -->
+
+        <MyControls:PopupPanel ShowButton="False" Message="{Binding ErrorMessage}" d:LayoutOverrides="Height" Grid.RowSpan="10" Grid.ColumnSpan="10"/>
+
+    </Grid>
+    
+</UserControl>

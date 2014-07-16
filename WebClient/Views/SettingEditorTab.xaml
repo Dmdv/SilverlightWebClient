@@ -1,0 +1,130 @@
+﻿<UserControl
+    x:Name="TabContent"
+    x:Class="WebClient.ICS.Client.Views.SettingEditorTab"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Views="clr-namespace:WebClient.ICS.Client.Views" 
+    xmlns:Controls="clr-namespace:WebClient.ICS.Client.Controls" 
+    xmlns:Commands="clr-namespace:WebClient.ICS.Client.Commands" 
+    xmlns:Behaviours="clr-namespace:WebClient.ICS.Client.Behaviours" 
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+    mc:Ignorable="d"
+    d:DesignHeight="583" d:DesignWidth="727" UseLayoutRounding="True" IsEnabled="{Binding IsEnabled}">
+
+	<UserControl.Resources>
+		<SolidColorBrush x:Key="BorderInfoBrush" Color="#FF2175B8"/>
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="CornerRadius" Value="4"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderInfoBrush}"/>
+            <Setter Property="Background" Value="{StaticResource BorderBackground}"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+    </UserControl.Resources>
+
+    <d:UserControl.DataContext>
+        <Binding Mode="OneWay" Path="NodeEditorViewModelDesignTime" Source="{StaticResource Locator}" />
+    </d:UserControl.DataContext>
+
+    <Grid x:Name="LayoutRoot">
+		<Grid Background="{StaticResource TabContentBackground}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="40"/>
+				<ColumnDefinition Width="0.839*"/>
+				<ColumnDefinition Width="40"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="20"/>
+				<RowDefinition Height="Auto" MinHeight="52"/>
+				<RowDefinition/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<Border x:Name="NameBorder" Grid.Column="1" Grid.Row="1" Style="{StaticResource BorderStyle}">
+				<Grid>
+					<Grid x:Name="NodeName" Height="17" VerticalAlignment="Top">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition/>
+						</Grid.ColumnDefinitions>
+						<TextBlock TextWrapping="Wrap" Text="Node name:" FontSize="13.333" FontWeight="Bold" Style="{StaticResource TreeNodeTextStyle}" Foreground="{StaticResource DarkTextBrush}" Margin="0,0,10,0"/>
+						<TextBlock Text="{Binding HeaderInfo, FallbackValue='not selected'}" TextWrapping="Wrap" FontSize="13.333" Style="{StaticResource TreeNodeTextStyle}" FontWeight="Bold" Foreground="{StaticResource DarkTextBrush}" Grid.Column="1"/>
+					</Grid>
+					<Grid x:Name="NodeDatas" Margin="0,27,0,0" >
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+						<TextBlock TextWrapping="Wrap" Text="Last change:" FontSize="13.333" FontWeight="Bold" Style="{StaticResource TreeNodeTextStyle}" Foreground="{StaticResource DarkTextBrush}" d:LayoutOverrides="Height" Margin="0"/>
+						<TextBlock Text="{Binding LastChange, ConverterCulture=ru-RU, Mode=OneWay, FallbackValue='not available'}" TextWrapping="Wrap" FontSize="13.333" Style="{StaticResource TreeNodeTextStyle}" FontWeight="Bold" Foreground="{StaticResource DarkTextBrush}" Grid.Column="1" Margin="10,0,0,0"/>
+						<TextBlock Visibility="{Binding IsNode, Converter={StaticResource NodeTypeSelectorVisibility}, FallbackValue=Collapsed}" TextWrapping="Wrap" Text="Last access:" FontSize="13.333" FontWeight="Bold" Style="{StaticResource TreeNodeTextStyle}" Foreground="{StaticResource DarkTextBrush}" Grid.Row="1"/>
+                        <TextBlock Visibility="{Binding IsNode, Converter={StaticResource NodeTypeSelectorVisibility}, FallbackValue=Collapsed}" Text="{Binding LastAccess, ConverterCulture=ru-RU, Mode=OneWay, TargetNullValue=Never}" TextWrapping="Wrap" FontSize="13.333" Style="{StaticResource TreeNodeTextStyle}" FontWeight="Bold" Foreground="{StaticResource DarkTextBrush}" Grid.Row="1" Grid.Column="1" Margin="10,0,0,0"/>
+					</Grid>
+				</Grid>
+			</Border>
+            
+			<Border x:Name="EditableBorder" Grid.Column="1" Grid.Row="2" Style="{StaticResource BorderStyle}">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0" Padding="0" Style="{StaticResource ScrollViewerStyle}">
+					<Grid x:Name="EditableContent">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+
+                        <!-- Types selector -->
+
+                        <StackPanel x:Name="SettingType" Visibility="{Binding IsNode, Converter={StaticResource NodeTypeSelectorVisibility}, FallbackValue=Collapsed}" Grid.Row="0" Margin="0">
+                            <TextBlock Text="Setting type:" Margin="0,0,0,4" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Trebuchet MS" FontSize="13.333"/>
+                            <ComboBox x:Name="DataTypesSelector" SelectedItem="{Binding DataType, Converter={StaticResource DataTypeToStringConverter}, Mode=TwoWay}" Margin="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400"/>
+                        </StackPanel>
+
+                        <!-- Value -->
+                        <StackPanel x:Name="Value" Grid.Row="1" Margin="0,10,0,0" Visibility="{Binding IsNode, Converter={StaticResource NodeTypeSelectorVisibility}, FallbackValue=Collapsed}">
+                            <TextBlock Text="{Binding EditorNotation}" Margin="0,0,0,4" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Trebuchet MS" FontSize="13.333"/>
+							<Views:DataDependentControlContainer x:Name="SettingValue"
+								DataContext="{Binding}"
+								VisibleDataType="{Binding SelectedItem, Converter={StaticResource StringToDataTypeConverter}, ElementName=DataTypesSelector}"
+								ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+						</StackPanel>
+
+						<!-- Validators -->
+
+						<Controls:ValidatorGrid x:Name="Validators" ValidatorsData="{Binding Validators}" d:LayoutOverrides="Width" Grid.Row="2" Margin="0,10,0,0" />
+
+                        <!-- Description -->
+                        
+                        <StackPanel Orientation="Vertical" Grid.Row="3" d:LayoutOverrides="Height">
+							<TextBlock TextWrapping="Wrap" Text="Description:" Margin="0,0,0,2"/>
+							<TextBox x:Name="TypeDescription" VerticalScrollBarVisibility="Auto"
+								Text="{Binding Description, Mode=TwoWay}" MinHeight="60" Style="{StaticResource TextBoxStyle}">
+								<i:Interaction.Behaviors>
+									<Behaviours:TextBoxSourceUpdate/>
+								</i:Interaction.Behaviors>
+							</TextBox>
+						</StackPanel>
+					</Grid>
+                </ScrollViewer>
+            </Border>
+
+            <!-- Save changes -->
+            <Button
+                x:Name="bnSaveChanges" Grid.Row="4"
+                Commands:Click.Command="{Binding SaveChangesCommand}"
+                VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="{StaticResource ControlMargins}"
+                Content="Save changes" ToolTipService.ToolTip="Сохранить изменения" Height="30" Padding="8,3" Grid.Column="1" />
+
+            <!-- Error cutrain window -->
+            
+            <Controls:PopupPanel ShowButton="False" Message="{Binding ErrorMessage}" d:LayoutOverrides="Height" Grid.RowSpan="10" Grid.ColumnSpan="10"/>
+
+        </Grid>
+	</Grid>
+</UserControl>

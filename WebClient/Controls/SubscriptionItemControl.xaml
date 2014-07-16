@@ -1,0 +1,77 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:Controls="clr-namespace:WebClient.ICS.Client.Controls" xmlns:Commands="clr-namespace:WebClient.ICS.Client.Commands" xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:Behaviours="clr-namespace:WebClient.ICS.Client.Behaviours" mc:Ignorable="d"
+	x:Class="WebClient.ICS.Client.Controls.SubscriptionItemControl"
+	d:DesignWidth="421" d:DesignHeight="95"
+    d:DataContext="{Binding Source={StaticResource Locator}, Path=SubscriptionItemViewModelDesignTime}">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid d:LayoutOverrides="Height">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+
+            <TextBlock Text="Owner:" Margin="2,2,7,0" Grid.Row="0"/>
+            <TextBlock Text="{Binding Creator}" Margin="2,2,7,3" Grid.Row="0" Grid.Column="1"/>
+            
+            <TextBlock Text="Path:" Margin="2,2,7,0" Grid.Row="1"/>
+            <TextBlock Text="{Binding ElementPath}" Margin="2,2,7,3" Grid.Row="1" Grid.Column="1"/>
+            
+			<TextBlock Text="Watched users:" Margin="2,4,7,0" Grid.Row="2"/>
+			<TextBlock Text="Operations:" Margin="2,0,7,0" Grid.Row="3"/>
+			<TextBlock Text="Address:" Margin="2,0,7,0" Grid.Row="4"/>
+
+            <TextBox x:Name="WatchedUsers" Text="{Binding WatchedUsers, Mode=TwoWay}" Grid.Column="1" Grid.Row="2" Margin="0,0,0,3">
+                <i:Interaction.Behaviors>
+                    <Behaviours:TextBoxSourceUpdate/>
+                </i:Interaction.Behaviors>
+            </TextBox>
+
+                <Controls:OperationSelector x:Name="OperationsList" d:LayoutOverrides="Height" Grid.Row="3" Grid.Column="1"
+				ItemTemplate="{StaticResource ComboItemTemplate}" 
+				ItemsSource="{Binding Operations}" 
+				Text="{Binding SelectedOperations}" Margin="0,0,0,3"/>
+
+            <TextBox Text="{Binding Address, Mode=TwoWay}" Grid.Column="1" Grid.Row="4">
+                <i:Interaction.Behaviors>
+                    <Behaviours:TextBoxSourceUpdate/>
+                </i:Interaction.Behaviors>
+            </TextBox>
+
+                <!-- Buttons -->
+            
+			<StackPanel Grid.Column="3" Grid.RowSpan="5" Margin="6,1,6,0" Width="90">
+				<Button
+                    Commands:Click.Command="{Binding UpdateSubscriptionCommand}"
+                    Commands:Click.IsConfirm="True"
+                    Commands:Click.ConfirmMessage="Click 'OK' to update subscription"
+                    Commands:Click.ConfirmCaption="Update subscription"
+                    Content="Update" Margin="0,0,0,3"/>
+				<Button
+                    Commands:Click.Command="{Binding DeleteSubscriptionCommand}"
+                    Commands:Click.IsConfirm="True"
+                    Commands:Click.ConfirmMessage="Click 'OK' to delete subscription"
+                    Commands:Click.ConfirmCaption="Delete subscription"
+                    Content="Delete"/>
+			</StackPanel>
+
+            <!-- Separator -->
+            
+            <Rectangle Height="1" x:Name="Seperator" Width="Auto" StrokeThickness="1" Margin="2,8" Grid.Row="5" RadiusX="5" RadiusY="5" Fill="White" Grid.ColumnSpan="3"/>
+
+        </Grid>
+	</Grid>
+</UserControl>

@@ -1,0 +1,61 @@
+﻿<UserControl 
+    x:Class="WebClient.ICS.Client.Controls.EditSubscriptionsPanel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:Controls="clr-namespace:WebClient.ICS.Client.Controls" 
+    xmlns:Commands="clr-namespace:WebClient.ICS.Client.Commands" 
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+    xmlns:Behaviours="clr-namespace:WebClient.ICS.Client.Behaviours" mc:Ignorable="d"
+    d:DesignHeight="101" d:DesignWidth="439"
+    d:DataContext="{Binding SubscriptionDesignTime, Source={StaticResource Locator}}">
+    
+    <Grid x:Name="LayoutRoot">
+        <Grid d:LayoutOverrides="Height">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Watched users:" Margin="4,0,7,0" Grid.Row="1" VerticalAlignment="Center"/>
+            <TextBlock Text="Operations:" Margin="4,0,7,0" Grid.Row="2" Padding="0,4,0,0" Height="28" VerticalAlignment="Center"/>
+            <TextBlock Text="Address:" Margin="4,0,7,0" Grid.Row="3" VerticalAlignment="Center"/>
+
+            <TextBox Text="{Binding WatchedUser, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" Margin="0,0,0,3">
+                <i:Interaction.Behaviors>
+                    <Behaviours:TextBoxSourceUpdate/>
+                </i:Interaction.Behaviors>
+            </TextBox>
+            
+            <Controls:OperationSelector x:Name="OperationsList" Grid.Row="2" Grid.Column="1"
+                                        Height="24"
+                                        DataContext="{Binding OperationListViewModel}"
+                                        ItemTemplate="{StaticResource ComboItemTemplate}"
+                                        ItemsSource="{Binding Operations}"
+                                        Text="{Binding SelectedOperations}" Margin="0,0,0,3" FontSize="12"/>
+
+            <TextBox Text="{Binding Address, Mode=TwoWay}" Grid.Column="1" Grid.Row="3">
+                <i:Interaction.Behaviors>
+                    <Behaviours:TextBoxSourceUpdate/>
+                </i:Interaction.Behaviors>
+            </TextBox>
+
+            <StackPanel Grid.Column="3" Grid.RowSpan="4" Margin="6,1,6,0" Width="90">
+                <Button
+                    Commands:Click.Command="{Binding CreateSubscriptionCommand}"
+                    Commands:Click.IsConfirm="True"
+                    Commands:Click.ConfirmCaption="Create new subscription"
+                    Commands:Click.ConfirmMessage = "Click OK to create new subscription"
+                    Content="Add" Margin="0,0,0,3"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

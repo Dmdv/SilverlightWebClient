@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://bb-service.avp.ru/IcsSvc/Ics.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://bb-service.avp.ru/IcsSvc/Ics.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://bb-service.avp.ru/IcsSvc/Ics.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IIcsContract_GetVersion_InputMessage">
+    <wsdl:part name="parameters" element="GetVersion" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetVersion_OutputMessage">
+    <wsdl:part name="parameters" element="GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetChildElements_InputMessage">
+    <wsdl:part name="parameters" element="GetChildElements" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetChildElements_OutputMessage">
+    <wsdl:part name="parameters" element="GetChildElementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetElement_InputMessage">
+    <wsdl:part name="parameters" element="GetElement" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetElement_OutputMessage">
+    <wsdl:part name="parameters" element="GetElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_CreateElement_InputMessage">
+    <wsdl:part name="parameters" element="CreateElement" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_CreateElement_OutputMessage">
+    <wsdl:part name="parameters" element="CreateElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_UpdateElement_InputMessage">
+    <wsdl:part name="parameters" element="UpdateElement" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_UpdateElement_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_DeleteElement_InputMessage">
+    <wsdl:part name="parameters" element="DeleteElement" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_DeleteElement_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteElementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetElementPermissions_InputMessage">
+    <wsdl:part name="parameters" element="GetElementPermissions" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetElementPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="GetElementPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetUserPermissions_InputMessage">
+    <wsdl:part name="parameters" element="GetUserPermissions" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetUserPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="GetUserPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetPermission_InputMessage">
+    <wsdl:part name="parameters" element="GetPermission" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetPermission_OutputMessage">
+    <wsdl:part name="parameters" element="GetPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_AddPermission_InputMessage">
+    <wsdl:part name="parameters" element="AddPermission" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_AddPermission_OutputMessage">
+    <wsdl:part name="parameters" element="AddPermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_UpdatePermission_InputMessage">
+    <wsdl:part name="parameters" element="UpdatePermission" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_UpdatePermission_OutputMessage">
+    <wsdl:part name="parameters" element="UpdatePermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_DeletePermission_InputMessage">
+    <wsdl:part name="parameters" element="DeletePermission" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_DeletePermission_OutputMessage">
+    <wsdl:part name="parameters" element="DeletePermissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetBranch_InputMessage">
+    <wsdl:part name="parameters" element="GetBranch" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetBranch_OutputMessage">
+    <wsdl:part name="parameters" element="GetBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetSetting_InputMessage">
+    <wsdl:part name="parameters" element="GetSetting" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetSetting_OutputMessage">
+    <wsdl:part name="parameters" element="GetSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetLastChangeTime_InputMessage">
+    <wsdl:part name="parameters" element="GetLastChangeTime" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetLastChangeTime_OutputMessage">
+    <wsdl:part name="parameters" element="GetLastChangeTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GenerateScript_InputMessage">
+    <wsdl:part name="parameters" element="GenerateScript" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GenerateScript_OutputMessage">
+    <wsdl:part name="parameters" element="GenerateScriptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_ApplyScript_InputMessage">
+    <wsdl:part name="parameters" element="ApplyScript" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_ApplyScript_OutputMessage">
+    <wsdl:part name="parameters" element="ApplyScriptResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetElementHistory_InputMessage">
+    <wsdl:part name="parameters" element="GetElementHistory" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetElementHistory_OutputMessage">
+    <wsdl:part name="parameters" element="GetElementHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetUserHistory_InputMessage">
+    <wsdl:part name="parameters" element="GetUserHistory" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetUserHistory_OutputMessage">
+    <wsdl:part name="parameters" element="GetUserHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetHistoryRecords_InputMessage">
+    <wsdl:part name="parameters" element="GetHistoryRecords" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetHistoryRecords_OutputMessage">
+    <wsdl:part name="parameters" element="GetHistoryRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetElementSubscriptions_InputMessage">
+    <wsdl:part name="parameters" element="GetElementSubscriptions" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetElementSubscriptions_OutputMessage">
+    <wsdl:part name="parameters" element="GetElementSubscriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetUserSubscriptions_InputMessage">
+    <wsdl:part name="parameters" element="GetUserSubscriptions" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetUserSubscriptions_OutputMessage">
+    <wsdl:part name="parameters" element="GetUserSubscriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetSubscription_InputMessage">
+    <wsdl:part name="parameters" element="GetSubscription" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_GetSubscription_OutputMessage">
+    <wsdl:part name="parameters" element="GetSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_CreateSubscription_InputMessage">
+    <wsdl:part name="parameters" element="CreateSubscription" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_CreateSubscription_OutputMessage">
+    <wsdl:part name="parameters" element="CreateSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_UpdateSubscription_InputMessage">
+    <wsdl:part name="parameters" element="UpdateSubscription" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_UpdateSubscription_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_DeleteSubscription_InputMessage">
+    <wsdl:part name="parameters" element="DeleteSubscription" />
+  </wsdl:message>
+  <wsdl:message name="IIcsContract_DeleteSubscription_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteSubscriptionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IIcsContract">
+    <wsdl:operation name="GetVersion">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetVersion" message="IIcsContract_GetVersion_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetVersionResponse" message="IIcsContract_GetVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChildElements">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetChildElements" message="IIcsContract_GetChildElements_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetChildElementsResponse" message="IIcsContract_GetChildElements_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetElement">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetElement" message="IIcsContract_GetElement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetElementResponse" message="IIcsContract_GetElement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateElement">
+      <wsdl:input wsaw:Action="urn:IIcsContract/CreateElement" message="IIcsContract_CreateElement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/CreateElementResponse" message="IIcsContract_CreateElement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateElement">
+      <wsdl:input wsaw:Action="urn:IIcsContract/UpdateElement" message="IIcsContract_UpdateElement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/UpdateElementResponse" message="IIcsContract_UpdateElement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteElement">
+      <wsdl:input wsaw:Action="urn:IIcsContract/DeleteElement" message="IIcsContract_DeleteElement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/DeleteElementResponse" message="IIcsContract_DeleteElement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetElementPermissions">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetElementPermissions" message="IIcsContract_GetElementPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetElementPermissionsResponse" message="IIcsContract_GetElementPermissions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPermissions">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetUserPermissions" message="IIcsContract_GetUserPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetUserPermissionsResponse" message="IIcsContract_GetUserPermissions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPermission">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetPermission" message="IIcsContract_GetPermission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetPermissionResponse" message="IIcsContract_GetPermission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPermission">
+      <wsdl:input wsaw:Action="urn:IIcsContract/AddPermission" message="IIcsContract_AddPermission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/AddPermissionResponse" message="IIcsContract_AddPermission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePermission">
+      <wsdl:input wsaw:Action="urn:IIcsContract/UpdatePermission" message="IIcsContract_UpdatePermission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/UpdatePermissionResponse" message="IIcsContract_UpdatePermission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePermission">
+      <wsdl:input wsaw:Action="urn:IIcsContract/DeletePermission" message="IIcsContract_DeletePermission_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/DeletePermissionResponse" message="IIcsContract_DeletePermission_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetUsers" message="IIcsContract_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetUsersResponse" message="IIcsContract_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBranch">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetBranch" message="IIcsContract_GetBranch_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetBranchResponse" message="IIcsContract_GetBranch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSetting">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetSetting" message="IIcsContract_GetSetting_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetSettingResponse" message="IIcsContract_GetSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastChangeTime">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetLastChangeTime" message="IIcsContract_GetLastChangeTime_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetLastChangeTimeResponse" message="IIcsContract_GetLastChangeTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="urn:IIcsContract/DeleteUser" message="IIcsContract_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/DeleteUserResponse" message="IIcsContract_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateScript">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GenerateScript" message="IIcsContract_GenerateScript_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GenerateScriptResponse" message="IIcsContract_GenerateScript_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplyScript">
+      <wsdl:input wsaw:Action="urn:IIcsContract/ApplyScript" message="IIcsContract_ApplyScript_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/ApplyScriptResponse" message="IIcsContract_ApplyScript_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetElementHistory">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetElementHistory" message="IIcsContract_GetElementHistory_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetElementHistoryResponse" message="IIcsContract_GetElementHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserHistory">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetUserHistory" message="IIcsContract_GetUserHistory_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetUserHistoryResponse" message="IIcsContract_GetUserHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoryRecords">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetHistoryRecords" message="IIcsContract_GetHistoryRecords_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetHistoryRecordsResponse" message="IIcsContract_GetHistoryRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetElementSubscriptions">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetElementSubscriptions" message="IIcsContract_GetElementSubscriptions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetElementSubscriptionsResponse" message="IIcsContract_GetElementSubscriptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserSubscriptions">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetUserSubscriptions" message="IIcsContract_GetUserSubscriptions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetUserSubscriptionsResponse" message="IIcsContract_GetUserSubscriptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubscription">
+      <wsdl:input wsaw:Action="urn:IIcsContract/GetSubscription" message="IIcsContract_GetSubscription_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/GetSubscriptionResponse" message="IIcsContract_GetSubscription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateSubscription">
+      <wsdl:input wsaw:Action="urn:IIcsContract/CreateSubscription" message="IIcsContract_CreateSubscription_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/CreateSubscriptionResponse" message="IIcsContract_CreateSubscription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSubscription">
+      <wsdl:input wsaw:Action="urn:IIcsContract/UpdateSubscription" message="IIcsContract_UpdateSubscription_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/UpdateSubscriptionResponse" message="IIcsContract_UpdateSubscription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubscription">
+      <wsdl:input wsaw:Action="urn:IIcsContract/DeleteSubscription" message="IIcsContract_DeleteSubscription_InputMessage" />
+      <wsdl:output wsaw:Action="urn:IIcsContract/DeleteSubscriptionResponse" message="IIcsContract_DeleteSubscription_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

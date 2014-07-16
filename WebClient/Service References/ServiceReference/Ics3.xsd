@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://myservice.ru/svc/service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" />
+  <xs:element name="GetVersion">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetVersionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetChildElements">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="parent" nillable="true" type="q1:Node" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetChildElementsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetChildElementsResult" nillable="true" type="q2:ResponceOfArrayOfElementxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="element" nillable="true" type="q3:Element" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetElementResult" nillable="true" type="q4:ResponceOfElementxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="parent" nillable="true" type="q5:Node" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="newElement" nillable="true" type="q6:Element" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateElementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="CreateElementResult" nillable="true" type="q7:ResponceOfElementxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="element" nillable="true" type="q8:Element" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateElementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="UpdateElementResult" nillable="true" type="q9:ResponceOfElementxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteElement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="element" nillable="true" type="q10:Element" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteElementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="DeleteElementResult" nillable="true" type="q11:VoidResponce" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElementPermissions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="element" nillable="true" type="q12:Element" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElementPermissionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetElementPermissionsResult" nillable="true" type="q13:ResponceOfArrayOfPermissionxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPermissions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="user" nillable="true" type="q14:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPermissionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetUserPermissionsResult" nillable="true" type="q15:ResponceOfArrayOfPermissionxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPermission">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="permission" nillable="true" type="q16:Permission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPermissionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetPermissionResult" nillable="true" type="q17:ResponceOfPermissionxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPermission">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="element" nillable="true" type="q18:Element" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="permission" nillable="true" type="q19:Permission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPermissionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="AddPermissionResult" nillable="true" type="q20:ResponceOfPermissionxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePermission">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="permission" nillable="true" type="q21:Permission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePermissionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="UpdatePermissionResult" nillable="true" type="q22:ResponceOfPermissionxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePermission">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="permission" nillable="true" type="q23:Permission" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePermissionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="DeletePermissionResult" nillable="true" type="q24:VoidResponce" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetUsersResult" nillable="true" type="q25:ResponceOfArrayOfUserxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetBranchResult" nillable="true" type="q26:ResponceOfNodexqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSettingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetSettingResult" nillable="true" type="q27:ResponceOfSettingxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastChangeTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="path" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastChangeTimeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetLastChangeTimeResult" nillable="true" type="q28:ResponceOfdateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="user" nillable="true" type="q29:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="DeleteUserResult" nillable="true" type="q30:VoidResponce" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateScript">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="element" nillable="true" type="q31:Node" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateScriptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GenerateScriptResult" nillable="true" type="q32:ResponceOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyScript">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="element" nillable="true" type="q33:Node" />
+        <xs:element minOccurs="0" name="script" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyScriptResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="ApplyScriptResult" nillable="true" type="q34:VoidResponce" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElementHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="element" nillable="true" type="q35:Element" />
+        <xs:element minOccurs="0" name="successfull" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="from" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="to" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="userFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="operationFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="max" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElementHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetElementHistoryResult" nillable="true" type="q36:ResponceOfArrayOfHistoryInfoxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserHistory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="user" nillable="true" type="q37:User" />
+        <xs:element minOccurs="0" name="successfull" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="from" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="to" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="operationFilter" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="max" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserHistoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetUserHistoryResult" nillable="true" type="q38:ResponceOfArrayOfHistoryInfoxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistoryRecords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="info" nillable="true" type="q39:HistoryInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistoryRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetHistoryRecordsResult" nillable="true" type="q40:ResponceOfArrayOfHistoryRecordxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElementSubscriptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="element" nillable="true" type="q41:Element" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetElementSubscriptionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetElementSubscriptionsResult" nillable="true" type="q42:ResponceOfArrayOfSubscriptionxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSubscriptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="user" nillable="true" type="q43:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserSubscriptionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetUserSubscriptionsResult" nillable="true" type="q44:ResponceOfArrayOfSubscriptionxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubscription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="subscription" nillable="true" type="q45:Subscription" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubscriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="GetSubscriptionResult" nillable="true" type="q46:ResponceOfSubscriptionxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSubscription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="element" nillable="true" type="q47:Element" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="subscription" nillable="true" type="q48:Subscription" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateSubscriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="CreateSubscriptionResult" nillable="true" type="q49:ResponceOfSubscriptionxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSubscription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="subscription" nillable="true" type="q50:Subscription" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSubscriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="UpdateSubscriptionResult" nillable="true" type="q51:ResponceOfSubscriptionxqU3Jgrq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSubscription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="subscription" nillable="true" type="q52:Subscription" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSubscriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/KL.ICS.Core.DTO" minOccurs="0" name="DeleteSubscriptionResult" nillable="true" type="q53:VoidResponce" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,42 @@
+﻿<UserControl
+    x:Class="WebClient.ICS.Client.Views.UserPermissionsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Commands="clr-namespace:WebClient.ICS.Client.Commands" mc:Ignorable="d"
+    d:DesignWidth="300" d:DesignHeight="400">
+    
+	<UserControl.DataContext>
+		<Binding Path="UserPermissionViewModel" Source="{StaticResource Locator}"/>
+	</UserControl.DataContext>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+        <ContentControl Template="{StaticResource RoundScrollableContentControlTemplate}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+			<ListBox x:Name="UserListBox"
+                     ItemsSource="{Binding Users}" 
+                     Style="{StaticResource ListBoxStyle}" 
+                     Foreground="{StaticResource ButtonTextBlueBrush}" SelectionMode="Single">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock FontWeight="SemiBold" Text="{Binding User.Name}" />
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+        </ContentControl>
+        
+		<Button
+            ToolTipService.ToolTip="Delete selected user"
+            Commands:Click.Command="{Binding RemoveUserCommand}"
+            Commands:Click.CommandParameter="{Binding SelectedItem, ElementName=UserListBox}"
+            Commands:Click.IsConfirm="True"
+            Commands:Click.ConfirmCaption="Confirm deletion"
+            Commands:Click.ConfirmMessage="Are you sure you want to delete user?"
+            Content="Remove" Grid.Row="1" HorizontalAlignment="Right" Width="88" Margin="0,10,0,0" Height="30" />
+
+	</Grid>
+
+</UserControl>

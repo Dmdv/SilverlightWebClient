@@ -1,0 +1,123 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+	xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
+	xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+	xmlns:Controls="clr-namespace:WebClient.ICS.Client.Controls" 
+	xmlns:Behaviours="clr-namespace:WebClient.ICS.Client.Behaviours" 
+	xmlns:Commands="clr-namespace:WebClient.ICS.Client.Commands"
+	mc:Ignorable="d"
+	x:Class="WebClient.ICS.Client.Controls.FilterPanelControl"
+	d:DesignWidth="624" d:DesignHeight="147">
+
+	<d:DesignProperties.DataContext>
+		<Binding Path="NodeHistoryDesignTimeStatic" Source="{StaticResource Locator}"/>
+	</d:DesignProperties.DataContext>
+
+	<Grid x:Name="LayoutRoot">
+
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup x:Name="PanelStates">
+				<VisualStateGroup.Transitions>
+					<VisualTransition GeneratedDuration="0">
+						<VisualTransition.GeneratedEasingFunction>
+							<CubicEase EasingMode="EaseInOut"/>
+						</VisualTransition.GeneratedEasingFunction>
+					</VisualTransition>
+					<VisualTransition GeneratedDuration="0:0:0.3" To="MouseLeaveState"/>
+				</VisualStateGroup.Transitions>
+				<VisualState x:Name="MouseOver">
+					<Storyboard>
+						<ColorAnimation Duration="0:0:0.2" To="#FF006DFF" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" Storyboard.TargetName="FilterPanel" d:IsOptimized="True"/>
+					</Storyboard>
+				</VisualState>
+				<VisualState x:Name="MouseLeaveState"/>
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
+
+		<ContentControl x:Name="FilterPanel" Template="{StaticResource FilterPanelTemplate}" Background="#FF003F93" Padding="3">
+			
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseEnter">
+					<ei:GoToStateAction StateName="MouseOver"/>
+				</i:EventTrigger>
+				<i:EventTrigger EventName="MouseLeaveState">
+					<ei:GoToStateAction StateName="MouseLeaveState"/>
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+			
+			<Grid Grid.ColumnSpan="2" Margin="0,0,0,10">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.293*" />
+					<ColumnDefinition Width="0.293*" />
+					<ColumnDefinition Width="0.203*" />
+					<ColumnDefinition Width="0.203*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<TextBlock x:Name="FromLabel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="From:" VerticalAlignment="Top" Margin="5,2,0,0" Foreground="{StaticResource ButtonTextBlueBrush}" />
+				<TextBlock x:Name="ToLabel" HorizontalAlignment="Left" TextWrapping="Wrap" Text="To:" VerticalAlignment="Top" Margin="5,2,0,0" Grid.Column="1" Foreground="{StaticResource ButtonTextBlueBrush}" />
+				
+				<ComboBox x:Name="IsSuccessfull" 
+						  SelectedValue="{Binding FilterViewModel.Successfull, Mode=TwoWay, Source={StaticResource Locator}}" 
+						  ItemsSource="{Binding FilterViewModel.SuccessFilter, Source={StaticResource Locator}}" d:LayoutOverrides="Height" 
+						  Padding="6,0,0,0" Grid.Row="1" Grid.Column="2" Foreground="{StaticResource ButtonTextBlueBrush}" SelectedIndex="0">
+					<ComboBox.Margin>
+						<Thickness>5,5,0,3</Thickness>
+					</ComboBox.Margin>
+				</ComboBox>
+				
+				<!-- From -->
+				
+				<sdk:DatePicker x:Name="DateFrom" SelectedDate="{Binding FilterViewModel.From, ConverterCulture=ru-RU, Mode=TwoWay, Source={StaticResource Locator}}" IsTodayHighlighted="True" Grid.Row="1">
+					<sdk:DatePicker.Margin>
+						<Thickness>5,5,0,3</Thickness>
+					</sdk:DatePicker.Margin>
+				</sdk:DatePicker>
+
+				<!-- To -->
+
+				<sdk:DatePicker x:Name="DateTo" SelectedDate="{Binding FilterViewModel.To, ConverterCulture=ru-RU, Mode=TwoWay, Source={StaticResource Locator}}" DisplayDate="{Binding FilterViewModel.To, ConverterCulture=ru-RU, Mode=TwoWay, Source={StaticResource Locator}}" IsTodayHighlighted="True" Grid.Row="1" Grid.Column="1">
+					<sdk:DatePicker.Margin>
+						<Thickness>5,5,0,3</Thickness>
+					</sdk:DatePicker.Margin>
+				</sdk:DatePicker>
+				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Operations:" VerticalAlignment="Top" Margin="5,2,0,0" Foreground="{StaticResource ButtonTextBlueBrush}" Grid.Row="2" />
+
+				<!-- OperationsList -->
+				
+				<Controls:OperationSelector x:Name="OperationsList"
+					Margin="5,3,0,2" d:LayoutOverrides="Height" Grid.Row="3" 
+					ItemTemplate="{StaticResource ComboItemTemplate}" 
+					ItemsSource="{Binding FilterViewModel.OperationListViewModel.Operations, Source={StaticResource Locator}}" 
+					Text="{Binding FilterViewModel.Operations, Source={StaticResource Locator}}"/>
+
+				<!-- Users -->
+
+				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Users:" VerticalAlignment="Top" Margin="5,2,0,0" Grid.Column="1" Foreground="{StaticResource ButtonTextBlueBrush}" Grid.Row="2" />
+				<TextBox TextWrapping="Wrap" Text="{Binding FilterViewModel.UserFilter, Mode=TwoWay, Source={StaticResource Locator}}" d:LayoutOverrides="Height" Grid.Row="3" Grid.Column="1" Margin="5,3,0,2">
+					<i:Interaction.Behaviors>
+						<Behaviours:TextBoxSourceUpdate/>
+					</i:Interaction.Behaviors>
+				</TextBox>
+				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Max:" VerticalAlignment="Top" Margin="5,2,0,0" Foreground="{StaticResource ButtonTextBlueBrush}" Grid.Row="2" Grid.Column="2" />
+				<TextBox TextWrapping="Wrap" Text="{Binding FilterViewModel.Max, Mode=TwoWay, Source={StaticResource Locator}}" Grid.Row="3" Grid.Column="2" Margin="5,3,5,2" d:LayoutOverrides="Height, GridBox" Grid.ColumnSpan="2">
+					<i:Interaction.Behaviors>
+						<Behaviours:TextBoxSourceUpdate/>
+					</i:Interaction.Behaviors>
+				</TextBox>
+				<Button
+					IsEnabled="False"
+					Commands:Click.Command = "{Binding RefreshCommand}"
+					Content="Apply filters" Width="75" d:LayoutOverrides="Height" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+			</Grid>
+		</ContentControl>
+	</Grid>
+</UserControl>

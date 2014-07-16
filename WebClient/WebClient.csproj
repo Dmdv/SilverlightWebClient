@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF64414D-471D-4E71-8E5D-EA9E23BF8923}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebClient.ICS.Client</RootNamespace>
+    <AssemblyName>WebClient.ICS.Client</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>WebClient.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>WebClient.ICS.Client.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Build\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Build\Release\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.SL5">
+      <HintPath>packages\MvvmLightLibs.4.3.31.1\lib\SL5\GalaSoft.MvvmLight.Extras.SL5.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.SL5">
+      <HintPath>packages\MvvmLightLibs.4.3.31.1\lib\SL5\GalaSoft.MvvmLight.SL5.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\Microsoft.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Toolkit\dec11\Bin\System.Windows.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\MvvmLightLibs.4.3.31.1\lib\SL5\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Behaviours\TextBoxSourceUpdate.cs" />
+    <Compile Include="Commands\BindingCollection.cs" />
+    <Compile Include="Commands\BindingCollectionChangedEventHandler.cs" />
+    <Compile Include="Commands\BindingSlave.cs" />
+    <Compile Include="Commands\BindingUtil.cs" />
+    <Compile Include="Commands\BusinessDependencyObject.cs" />
+    <Compile Include="Commands\ButtonBaseClickCommandBehavior.cs" />
+    <Compile Include="Commands\Click.cs" />
+    <Compile Include="Commands\CommandBehaviorBase.cs" />
+    <Compile Include="Commands\CompositeCommand.cs" />
+    <Compile Include="Commands\DelegateSimpleCommand.cs" />
+    <Compile Include="Commands\DelegateCommand.cs" />
+    <Compile Include="Commands\DispatcherProxy.cs" />
+    <Compile Include="Commands\ElementNameBindingSlave.cs" />
+    <Compile Include="Commands\IActiveAware.cs" />
+    <Compile Include="Commands\IMultiValueConverter.cs" />
+    <Compile Include="Commands\ItemClicked.cs" />
+    <Compile Include="Commands\ItemExpanded.cs" />
+    <Compile Include="Commands\ItemExpandedCommandBehavior.xaml.cs" />
+    <Compile Include="Commands\MultiBinding.cs" />
+    <Compile Include="Commands\MultiBindings.cs" />
+    <Compile Include="Commands\ObservableCommand.cs" />
+    <Compile Include="Commands\ObservableObject.cs" />
+    <Compile Include="Commands\TabControlCommandBehavior.xaml.cs" />
+    <Compile Include="Commands\TabItemClick.cs" />
+    <Compile Include="Commands\WeakEventHandlerManager.cs" />
+    <Compile Include="Contracts\Guard.cs" />
+    <Compile Include="Controls\ActiveStateButton.xaml.cs" />
+    <Compile Include="Controls\AnimatedTabControl.Silverlight.cs" />
+    <Compile Include="Commands\ItemClickedCommandBehavior.xaml.cs" />
+    <Compile Include="Controls\DialogArgs.xaml.cs" />
+    <Compile Include="Controls\HistoryItemList.xaml.cs" />
+    <Compile Include="Controls\HistoryListBox.xaml.cs" />
+    <Compile Include="Controls\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PopupPanel.xaml.cs">
+      <DependentUpon>PopupPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UIElementExtensions.cs" />
+    <Compile Include="Controls\SubscriptionEditorPanel.xaml.cs">
+      <DependentUpon>SubscriptionEditorPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EditSubscriptionsPanel.xaml.cs">
+      <DependentUpon>EditSubscriptionsPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HeaderContentControl.cs" />
+    <Compile Include="Controls\OperationSelector.cs" />
+    <Compile Include="Controls\SubscriptionListControl.xaml.cs">
+      <DependentUpon>SubscriptionListControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\ByteToPermissionConverter.cs" />
+    <Compile Include="Converters\CheckBoxConverter.cs" />
+    <Compile Include="Converters\InheritedToFontweightConverter.cs" />
+    <Compile Include="Converters\IsXmlConverter.cs" />
+    <Compile Include="Converters\NullToEnabledConverter.cs" />
+    <Compile Include="Converters\VisibilityToBooleanConverter.cs" />
+    <Compile Include="Editors\BinaryFileLoader.xaml.cs">
+      <DependentUpon>BinaryFileLoader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\BooleanEditor.xaml.cs">
+      <DependentUpon>BooleanEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\DateTimeEditor.xaml.cs">
+      <DependentUpon>DateTimeEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\NumberEditor.xaml.cs">
+      <DependentUpon>NumberEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ValidatorGrid.xaml.cs">
+      <DependentUpon>ValidatorGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BytesToDataConverter.cs" />
+    <Compile Include="Controls\DateTimeControl.xaml.cs">
+      <DependentUpon>DateTimeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FileControl.xaml.cs">
+      <DependentUpon>FileControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\HeaderItemsControl.cs" />
+    <Compile Include="Controls\RoundedBox.xaml.cs">
+      <DependentUpon>RoundedBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\WatermarkedTextbox.xaml.cs">
+      <DependentUpon>WatermarkedTextbox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\CommandNodeParameter.cs" />
+    <Compile Include="Converters\CurrentDataTypeConverter.cs" />
+    <Compile Include="Converters\DataToDateTimeConverter.cs" />
+    <Compile Include="Converters\EditControlsDataConverter.cs" />
+    <Compile Include="Converters\DataTypeToStringConverter.cs" />
+    <Compile Include="Converters\CurrentDataTypeInfo.cs" />
+    <Compile Include="Converters\NewNodeParameterConverter.cs" />
+    <Compile Include="Converters\NodeFontConverter.cs" />
+    <Compile Include="Converters\NodeStyleSelector.cs" />
+    <Compile Include="Converters\StringToDataTypeConverter.cs" />
+    <Compile Include="Converters\StyleSelector.cs" />
+    <Compile Include="Converters\BytesConverter.cs" />
+    <Compile Include="Editors\TextEditor.xaml.cs">
+      <DependentUpon>TextEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editors\XmlFileLoader.xaml.cs">
+      <DependentUpon>XmlFileLoader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\StyleValueSetter.cs" />
+    <Compile Include="Messages\ChangeSidePanelMessage.cs" />
+    <Compile Include="Model\Check.cs" />
+    <Compile Include="Model\ClientValidator.cs" />
+    <Compile Include="Model\ConstraintInfoCreator.cs" />
+    <Compile Include="Model\DataTypeEnum.cs" />
+    <Compile Include="Model\EditType.cs" />
+    <Compile Include="Model\Extensions.cs" />
+    <Compile Include="Model\Operation.cs" />
+    <Compile Include="Service References\ServiceReference\Reference.cs" />
+    <Compile Include="ServiceModel\BindingCreator.cs" />
+    <Compile Include="ViewModel\ConstraintInfo.cs" />
+    <Compile Include="ViewModel\EditorInvalidOperationArgs.cs" />
+    <Compile Include="ViewModel\FilterViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\OperationItem.cs" />
+    <Compile Include="Model\RightsAdapter.cs" />
+    <Compile Include="ViewModel\ValidatorViewModel.cs" />
+    <Compile Include="ServiceModel\AsyncCompletedEventArgsEx.cs" />
+    <Compile Include="ServiceModel\IServiceClient.cs" />
+    <Compile Include="ServiceModel\ServerExtension.cs" />
+    <Compile Include="ServiceModel\Service.cs" />
+    <Compile Include="ServiceModel\ServiceProxy.cs" />
+    <Compile Include="ViewModel\IModelUpdater.cs" />
+    <Compile Include="ViewModel\NodeParams.cs" />
+    <Compile Include="ViewModel\NodeEditorViewModel.cs" />
+    <Compile Include="ViewModel\NodeHistoryViewModel.cs" />
+    <Compile Include="ViewModel\SubscriptionViewModel.cs" />
+    <Compile Include="ViewModel\OperationListViewModel.cs" />
+    <Compile Include="ViewModel\SubscriptionItemViewModel.cs" />
+    <Compile Include="ViewModel\UserPermissionItemViewModel.cs" />
+    <Compile Include="ViewModel\SettingNodeViewModel.cs" />
+    <Compile Include="ViewModel\SettingsTreeViewModel.cs" />
+    <Compile Include="ViewModel\NodePermissionsViewModel.cs" />
+    <Compile Include="ViewModel\UserPermissionViewModel.cs" />
+    <Compile Include="Converters\EnumExtension.cs" />
+    <Compile Include="Controls\LazyTreeView.xaml.cs" />
+    <Compile Include="Controls\LazyTreeViewItem.xaml.cs" />
+    <Compile Include="Controls\FullStatisticsItemControl.xaml.cs">
+      <DependentUpon>FullStatisticsItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FilterPanelControl.xaml.cs">
+      <DependentUpon>FilterPanelControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HistoryTab.xaml.cs">
+      <DependentUpon>HistoryTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScriptLoaderTab.xaml.cs">
+      <DependentUpon>ScriptLoaderTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SubscriptionItemControl.xaml.cs">
+      <DependentUpon>SubscriptionItemControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubscriptionsTab.xaml.cs">
+      <DependentUpon>SubscriptionsTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingRightsTab.xaml.cs">
+      <DependentUpon>SettingRightsTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataDependentControlContainer.xaml.cs">
+      <DependentUpon>DataDependentControlContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsTreeView.xaml.cs">
+      <DependentUpon>SettingsTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\SettingEditorTab.xaml.cs">
+      <DependentUpon>SettingEditorTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TabInfo.xaml.cs" />
+    <Compile Include="Views\UserPermissionsView.xaml.cs">
+      <DependentUpon>UserPermissionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserRigthsTab.xaml.cs">
+      <DependentUpon>UserRigthsTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserSubscriptionsTab.xaml.cs">
+      <DependentUpon>UserSubscriptionsTab.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Controls\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PopupPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubscriptionEditorPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\DateTimeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\EditSubscriptionsPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FileControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\RoundedBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubscriptionListControl.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Editors\BinaryFileLoader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Editors\BooleanEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Editors\DateTimeEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Editors\NumberEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ValidatorGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\WatermarkedTextbox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Editors\TextEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Editors\XmlFileLoader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Skins\TreeViewResourceDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FullStatisticsItemControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\FilterPanelControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HistoryTab.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ScriptLoaderTab.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SubscriptionItemControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SubscriptionsTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SettingRightsTab.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DataDependentControlContainer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SettingsTreeView.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Shell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Skins\MainSkin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SettingEditorTab.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserPermissionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserRigthsTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserSubscriptionsTab.xaml">
+      <SubType>Form</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <Content Include="Libs\Microsoft.Expression.Interactions.dll" />
+    <Content Include="Libs\System.Windows.Interactivity.dll" />
+    <Content Include="Service References\ServiceReference\configuration.svcinfo" />
+    <Content Include="Service References\ServiceReference\configuration91.svcinfo" />
+    <Content Include="Service References\ServiceReference\Ics.disco" />
+    <Content Include="Service References\ServiceReference\Ics1.disco" />
+    <Content Include="Service References\ServiceReference\Ics11.disco" />
+    <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\ServiceReference\Ics.wsdl" />
+    <None Include="Service References\ServiceReference\Ics.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Ics1.wsdl" />
+    <None Include="Service References\ServiceReference\Ics1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Ics2.wsdl" />
+    <None Include="Service References\ServiceReference\Ics2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Ics21.wsdl" />
+    <None Include="Service References\ServiceReference\Ics22.wsdl" />
+    <None Include="Service References\ServiceReference\Ics23.wsdl" />
+    <None Include="Service References\ServiceReference\Ics3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Ics31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Ics32.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Ics33.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Ics34.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\Ics35.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfArrayOfElementxqU3Jgrq.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfArrayOfHistoryInfoxqU3Jgrq.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfArrayOfHistoryRecordxqU3Jgrq.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfArrayOfPermissionxqU3Jgrq.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfArrayOfSubscriptionxqU3Jgrq.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfArrayOfUserxqU3Jgrq.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfdateTime.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfElementxqU3Jgrq.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfNodexqU3Jgrq.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfPermissionxqU3Jgrq.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfSettingxqU3Jgrq.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfstring.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.ResponceOfSubscriptionxqU3Jgrq.datasource" />
+    <None Include="Service References\ServiceReference\KL.ICS.Client.ServiceReference.VoidResponce.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background.png" />
+    <Resource Include="Resources\shadow_b.png" />
+    <Resource Include="Resources\shadow_bl.png" />
+    <Resource Include="Resources\shadow_br.png" />
+    <Resource Include="Resources\shadow_l.png" />
+    <Resource Include="Resources\shadow_r.png" />
+    <Resource Include="Resources\shadow_t.png" />
+    <Resource Include="Resources\shadow_tl.png" />
+    <Resource Include="Resources\shadow_tr.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SampleData\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

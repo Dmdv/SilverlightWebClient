@@ -1,0 +1,98 @@
+﻿<UserControl
+    x:Class="WebClient.ICS.Client.Controls.PopupPanel" x:Name="PopupWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignHeight="451" d:DesignWidth="721" Visibility="Collapsed" Opacity="0">
+    
+    <UserControl.Resources>
+        <Storyboard x:Name="FadeIn">
+    		<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PopupWindow" Storyboard.TargetProperty="(UIElement.Opacity)">
+    			<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+    			<SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1"/>
+    		</DoubleAnimationUsingKeyFrames>
+    		<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PopupWindow" Storyboard.TargetProperty="(UIElement.Visibility)">
+    			<DiscreteObjectKeyFrame KeyTime="00:00:00">
+    				<DiscreteObjectKeyFrame.Value>
+    					<Visibility>Collapsed</Visibility>
+    				</DiscreteObjectKeyFrame.Value>
+    			</DiscreteObjectKeyFrame>
+    			<DiscreteObjectKeyFrame KeyTime="00:00:00.3000000">
+    				<DiscreteObjectKeyFrame.Value>
+    					<Visibility>Visible</Visibility>
+    				</DiscreteObjectKeyFrame.Value>
+    			</DiscreteObjectKeyFrame>
+    			<DiscreteObjectKeyFrame KeyTime="00:00:00.6000000">
+    				<DiscreteObjectKeyFrame.Value>
+    					<Visibility>Visible</Visibility>
+    				</DiscreteObjectKeyFrame.Value>
+    			</DiscreteObjectKeyFrame>
+    		</ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="MessageBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1" KeySpline="0.5,0,0.5,1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="MessageBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="1" KeySpline="0.5,0,0.5,1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="FadeOut">
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PopupWindow" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PopupWindow" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.6000000">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="MessageBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0" KeySpline="0.5,0,0.5,1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="MessageBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0" KeySpline="0.5,0,0.5,1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </UserControl.Resources>
+
+    <Border Background="#AE4D4D4D" CornerRadius="8" BorderBrush="Black" BorderThickness="2">
+
+		<Grid x:Name="LayoutRoot">
+
+			<Border RenderTransformOrigin="0.5,0.5" x:Name="MessageBorder" BorderBrush="Black" BorderThickness="2" CornerRadius="4" Background="White" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="300" MinWidth="200">
+				<Border.RenderTransform>
+					<CompositeTransform/>
+				</Border.RenderTransform>
+				<Grid HorizontalAlignment="Center">
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+					<TextBlock x:Name="MessageBox" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="5" FontFamily="Trebuchet MS" FontSize="13.333" TextAlignment="Center" Margin="10,0" />
+					<Button x:Name="CloseButton" Content="Close" Width="100" Height="26" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,0,0,6" />
+				</Grid>
+			</Border>
+		</Grid>
+	</Border>
+</UserControl>

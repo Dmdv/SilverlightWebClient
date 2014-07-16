@@ -1,0 +1,22 @@
+﻿<UserControl
+    x:Name="validatorGrid"
+    x:Class="WebClient.ICS.Client.Controls.ValidatorGrid"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    d:DesignHeight="55" d:DesignWidth="548"
+    d:DataContext="{Binding Source={StaticResource Locator}, Path=ValidatorsDesignTime}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+    
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+        
+        <!-- Контейнер для валидаторов -->
+
+        <StackPanel x:Name="Container" Margin="0,0,0,10"/>
+        
+    </Grid>
+</UserControl>
