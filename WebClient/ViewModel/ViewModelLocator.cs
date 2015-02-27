@@ -372,8 +372,8 @@ namespace WebClient.ICS.Client.ViewModel
         {
             var permissions = new ObservableCollection<Permission>();
 
-            var user1 = new User { Name = @"KL\Dyachkov" };
-            var user2 = new User { Name = @"KL\Bystrov" };
+            var user1 = new User { Name = @"KL\Name1" };
+            var user2 = new User { Name = @"KL\Name2" };
 
             var pre1 = new Permission { Operations = Operation.Read.Cast<byte>(), User = user1 };
             var pre2 = new Permission { Operations = Operation.ReadWrite.Cast<byte>(), User = user2 };
