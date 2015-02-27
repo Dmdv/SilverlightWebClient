@@ -62,8 +62,8 @@ namespace WebClient.ICS.Client.ViewModel
                     var subscription = new Subscription
                                                   {
                                                       Address = "email1@email.com; email2@email.com",
-                                                      Creator = @"KL\Bystrov",
-                                                      WatchedUsers = @"KL\Dyachkov; KL\Bystrov",
+                                                      Creator = @"KL\Name2",
+                                                      WatchedUsers = @"KL\Name1; KL\Name2",
                                                       Operations = "Create, Remove"
                                                   };
 
@@ -172,7 +172,7 @@ namespace WebClient.ICS.Client.ViewModel
                                                              Info = "Additional info about changes",
                                                              Operation = Model.Operation.Modify.ToString().ToLower(),
                                                              Path = "Root/Settings",
-                                                             User = @"KL\Dyachkov"
+                                                             User = @"KL\Name1"
                                                          };
 
                     var shortChangesInfoDesignTime2 = new HistoryInfo
@@ -181,7 +181,7 @@ namespace WebClient.ICS.Client.ViewModel
                                                               Info = "Additional info about changes2",
                                                               Operation = Model.Operation.Modify.ToString().ToLower(),
                                                               Path = "Root/Settings2",
-                                                              User = @"KL\Dyachkov"
+                                                              User = @"KL\Name1"
                                                           };
 
                     _shortChangesInfoDesignTime.Add(shortChangesInfoDesignTime);
@@ -214,7 +214,7 @@ namespace WebClient.ICS.Client.ViewModel
                                                 Info = "Additional info about changes",
                                                 Operation = Model.Operation.Modify.ToString().ToLower(),
                                                 Path = "Root/Settings",
-                                                User = @"KL\Dyachkov"
+                                                User = @"KL\Name1"
                                             });
             }
         }
